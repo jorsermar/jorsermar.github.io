@@ -1,0 +1,437 @@
+@local_fonts: '../fonts/';
+@fonts_prefix: @local_fonts;
+
+@local_img: '../img/';
+@img_prefix: @local_img;
+
+@header_bg: transparent;
+@header_color: black;
+@header_size: 18px;
+@gold: #c8a800;
+
+
+@import (less) 'vendor/flexboxgrid.css';
+@import (less) 'darkerdungeons.css';
+@import 'stylesheet.less';
+
+
+
+fieldset {
+    border:0;
+    margin:0;
+    padding:0;
+}
+
+.fontSerif() {
+    font-family:  'first_orderregular','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+.fontHeaders() {
+    font-family:  'first_order_condensedCn','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.charsheet {
+	.sheet-bg-less {
+		background-image:none!important;
+	}
+
+	.sheet-talessya {
+		background-image: url("@{img_prefix}fondo.png");
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		.sheet-section-pc-body {
+			width: 550px;
+			margin: 0 auto;
+
+			.sheet-tabs {
+  				position: relative;
+  				width: 550px;
+
+  				.sheet-tab {
+  					width: 550px;
+		
+					.sheet-container-well-attributes {
+						grid-template-columns: 100px auto;
+
+						.sheet-container-attribute {
+							background-image: url("@{img_prefix}atributo_bg.png");
+				  			grid-template-rows: auto 22px 22px;
+				  			height: 98px;
+				    		width: 100px;
+				    		grid-template-columns: 100px;
+
+				  			.sheet-container-header button {
+				  				color: white;
+				  				.fontHeaders(); 
+				  				font-size: 13px;
+				  			}
+
+				  			.sheet-container-footer {
+				  				padding: 0;
+				    			margin-left: 49px;
+
+				    			input:hover,
+				    			input:focus {
+				    				background:none;
+				    			}
+				  			}
+
+				  			.sheet-container-body {
+				  				align-items: flex-end;
+				  				
+				  				input {
+				  					width: 100%;
+				  					font-size: 30px;
+				  				}
+				  			}
+						}
+
+						.sheet-pc-combat {
+							display: grid;
+						    grid-area: secondary;
+						    grid-column-gap: 5px;
+						    grid-row-gap: 5px;
+						    grid-template-areas: "armadura iniciativa velocidad";
+						    grid-template-columns: repeat(3,1fr);
+						    grid-template-rows: 98px;
+						    align-items: center;
+
+							.sheet-container-box {
+								background-image: url("@{img_prefix}secundario_bg.png");
+    							grid-template-rows: auto 15px;
+    							height: 69px;
+    							width: 70px;
+    							background-size: contain;
+							}
+							
+							.sheet-container-box:before {
+								content: unset;
+							}
+
+							.sheet-container-header {
+							    padding: 0 5px 3px;
+							    color: white;
+					  			.fontHeaders(); 
+					  			font-size: 13px;
+
+								button {
+					  				color: white;
+					  				.fontHeaders(); 
+					  				font-size: 13px;
+				  				}
+				  			}
+
+				  			.sheet-container-footer {
+				  				padding: 0;
+				    			margin-left: 49px;
+				  			}
+
+				  			.sheet-container-body {
+				  				align-items: center;
+				  				padding-top: 6px;
+
+				  				input {
+				  					background:none;
+				  					border:none;
+				  					outline: none;
+				  					box-shadow: none;
+				  				}
+				  			}
+						}
+
+						.sheet-container-well-health {
+							display: grid;
+						    grid-area: health;
+						    grid-column-gap: 5px;
+						    grid-row-gap: 5px;
+						    grid-template-areas:"hp hit-dice";
+						    grid-template-columns: repeat(2, 1fr);
+						    grid-template-rows: 98px;
+							
+							.sheet-container-header {
+							    padding: 0 5px 3px;
+							    color: white;
+					  			.fontHeaders(); 
+					  			font-size: 13px;
+							    font-weight: bold;
+							    text-transform: uppercase;
+							    width: 100%;
+							    text-align:center;
+
+								button {
+					  				color: white;
+					  				.fontHeaders(); 
+					  				font-size: 13px;
+				  				}
+				  			}
+
+				  			.sheet-container-footer {
+				  				padding: 0;
+				    			margin-left: 49px;
+				  			}
+
+				  			.sheet-container-body {
+				  				align-items: flex-end;
+
+				  				input {
+				  					background:none;
+				  					border:none;
+				  					outline: none;
+				  					box-shadow: none;
+				  					text-align: center;
+				  					padding: 0;
+    								margin-bottom: -6px;
+				  				}
+				  			}
+						}
+
+						.sheet-container-hitdice {
+							grid-template-rows: 15px auto auto;
+				  			height: 98px;
+				    		width: 100px;
+				    		grid-template-columns: 100px;
+
+				    		.sheet-container-header {
+				    			line-height: 1;
+				    			padding: 0;
+				    			text-align: left;
+
+					  			button {
+					  				.fontHeaders(); 
+						  			font-size: 11px;
+						  			color: black;
+						  			line-height: 1;
+						  			background: none;
+    								border: 0;
+					  			}
+				    		}
+
+				    		.sheet-pc-hit-dice {
+				    			background-image: url("@{img_prefix}terciario_bg.png");
+    							grid-template-rows: auto 27px;
+    							height: 48px;
+    							width: 48px;
+    							background-size: contain;
+    							background-repeat: no-repeat;
+    							display: grid;
+    							max-height: 48px;
+    							min-height: 48px;
+
+    							.sheet-container-body {    								
+    								display: flex;
+    								input {
+    									font-size: 13px;
+    									max-width: 100%;
+    									text-align: center;
+    									max-width: 42px;
+    								}
+    							}
+
+    							.sheet-container-footer {
+    								font-size: 10px;
+    								display: flex;
+    								margin: 0;
+    								input {
+    									font-size: 10px;
+    									width: auto;
+    									background: none;
+									    border: none;
+									    outline: none;
+									    box-shadow: none;
+										text-align: right;
+									    padding: 0;
+									    max-width: 36px;
+    								}
+    							}
+				    		}
+
+				    		.sheet-pc-death {
+				    			grid-template-rows: auto 22px;
+    							height: 24px;
+    							width: 120px;
+    							background-size: contain;
+    							background-repeat: no-repeat;
+    							display: grid;
+    							max-height: 37px;
+    							min-height: 37px;
+
+    							.sheet-container-header {
+    							    display: flex;
+   									justify-content: start;
+				    			}
+
+				    			.sheet-checkbox-image {
+				    				height: 8px;
+				    				width: 8px;
+				    				margin-left: 1px;
+
+				    				span {
+				    				  background-color: transparent;
+				    				}
+
+				    				span.mas {
+				    				  background-image: url("@{img_prefix}icon_mas.png");
+				    				  background-size: contain;
+				    				  background-repeat: no-repeat;
+				    				  border: none;
+				    				}
+
+				    				span.menos {
+				    				  background-image: url("@{img_prefix}icon_menos.png");
+				    				  background-size: contain;
+				    				  background-repeat: no-repeat;
+				    				  border: none;
+				    				}
+
+				    			}
+
+				    			.sheet-container-body {
+				    				align-items: flex-start;
+				    			}
+				    		}
+						}    
+
+						.sheet-pc-attacks {
+				    		grid-template-columns: 100px auto;
+						    background-image: url("@{img_prefix}marco.png");
+						    background-size:100% 100%;
+						    background-repeat: no-repeat;
+						    padding: 20px 0px 10px 0px;
+						    min-height: 200px;
+
+						    &:before {
+						    	content: none;
+						    }
+
+						    .sheet-container-header {
+						    	.fontHeaders(); 
+					  			font-size: 15px;
+					  			border-bottom: 0;
+					  			background-image: url(../img/barra_horizontal.png);
+							    background-size: 101%;
+							    background-repeat: no-repeat;
+							    background-position: center bottom;
+							    padding-top: 5px;
+    							line-height: 1.3;
+						    }
+			    		}
+					}
+
+					.sheet-container-well-personality {
+						grid-template-columns: 100px auto;
+					    background-image: url("@{img_prefix}marco.png");
+					    background-size:100% 100%;
+					    background-repeat: no-repeat;
+					    padding: 20px 0;
+
+					    .sheet-container-box {
+					        display: block;
+					        min-height: auto;
+							background-image: url("@{img_prefix}barra_horizontal.png");
+						    background-size: 101%;
+						    background-repeat: no-repeat;
+						    background-position: center bottom;
+
+					        .sheet-container-header {
+					        	margin: 0;
+					        	padding: 0;
+					        	.fontHeaders(); 
+					  			font-size: 11px;
+					  			color: black;
+					  			padding: 5px 0px 0px 15px;
+					  			text-align: left;
+					  			display: block;
+					        }
+
+						    .sheet-container-body {
+						    	textarea {
+						    		height: auto;
+						    		margin-bottom: 0;
+						    		background: none;
+						    		outline: 0;
+						    		border: 0;
+						    		box-shadow: none;
+						    		padding: 0px 15px 5px 15px;
+						    		font-size: 7px;
+						    		line-height: 1.2em;
+						    	}
+						    }
+					    }
+
+					    .sheet-container-box:last-of-type {
+					    	background-image: none;
+					    }
+					}
+
+					.sheet-container-well-skills {
+						grid-template-columns: 100px auto;
+					    background-image: url("@{img_prefix}marco.png");
+					    background-size:100% 100%;
+					    background-repeat: no-repeat;
+					    padding: 10px 0;
+
+					   .sheet-container-header {
+				        	margin: 0;
+				        	padding: 0;
+				        	.fontHeaders(); 
+				  			font-size: 11px;
+				  			color: black;
+				  			padding: 5px 0px 0px 15px;
+				  			text-align: left;
+				  			display: block;
+				  			text-transform: uppercase;
+				  			background-image: url("@{img_prefix}barra_horizontal.png");
+						    background-size: 101%;
+						    background-repeat: no-repeat;
+						    background-position: center bottom;
+					    }
+
+					    .sheet-container-body {
+					    	column-count: 2;
+    						padding: 7px 10px;
+					    }
+
+					    .sheet-pc-skill {
+					    	display: block;
+					        min-height: auto;
+							background-image: url("@{img_prefix}barra_horizontal.png");
+						    background-size: 100%;
+						    background-repeat: no-repeat;
+						    background-position: center bottom;
+						    display:flex;
+						    font-size: 10px;
+						    align-items: center;
+    						line-height: 1.1em;
+
+    						.sheet-checkbox-image {
+    						    width: 8px;
+    							height: 8px;
+    							margin-right: 3px;
+    						}
+
+
+						    select {
+						    	display: none;
+						    }
+
+						    button {
+						        text-align: left;
+							    border: 0;
+							    background: none;
+							    box-shadow: none;
+							    height: 18px;
+							    margin: 0;
+							    padding: 0;
+							    vertical-align: baseline;
+							    color: inherit;
+							    margin-left: 3px;
+							    .fontHeaders(); 
+							    color: black;
+						    }
+					    }
+					}
+				}
+			}
+		}
+	}
+}
