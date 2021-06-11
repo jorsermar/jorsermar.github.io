@@ -1,4 +1,4 @@
-/*! Talessya Roll 20 Character Sheet - v0.1.0 - 2021-05-06
+/*! Talessya Roll 20 Character Sheet - v0.1.0 - 2021-06-11
 * https://jorsermar.github.io/roll20-character-sheets/
 * Copyright (c) 2021 Jorge Serrano; Licensed  */
 /*
@@ -1194,7 +1194,7 @@
   overflow: hidden;
 }
 /*  .charsheet .sheet-talessya .sheet-container-box::before {
-    border-image: url("@{img_prefix}sheet-box-border.png") 50 50 50 50 fill stretch;
+    border-image: url("@{img_prefix}borde-talessya.png") 50 50 50 50 fill stretch;
     border-style: solid;
     border-width: 15px 15px;
     box-sizing: border-box;
@@ -1359,7 +1359,7 @@
   z-index: 0;
 }
 .charsheet .sheet-talessya .sheet-container-panel::before {
-  border-image: url("../img/sheet-box-border.png") 50 50 50 50 fill stretch;
+  border-image: url("../img/borde-talessya.png") 50 50 50 50 fill stretch;
   border-style: solid;
   border-width: 15px 15px;
   box-sizing: border-box;
@@ -1434,7 +1434,7 @@
   margin-top: 3px;
 }
 .charsheet .sheet-talessya .sheet-container-spell::before {
-  border-image: url("../img/sheet-box-border.png") 50 50 50 50 fill stretch;
+  border-image: url("../img/borde-talessya.png") 50 50 50 50 fill stretch;
   border-style: solid;
   border-width: 15px 15px;
   box-sizing: border-box;
@@ -2899,8 +2899,9 @@
   z-index: 1;
 }
 .sheet-tabs .sheet-tab > input[type="radio"]:hover ~ .sheet-tab-label {
-  background: #e5fffb;
-  border-bottom-color: #dbfff9;
+  background: white;
+  color: #8c6c49;
+  border-bottom-color: #8c6c49;
 }
 .sheet-tabs .sheet-tab > .sheet-tab-label {
   align-items: center;
@@ -3928,11 +3929,11 @@
 }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-equipment > input[type="radio"]:checked ~ .sheet-tab-content {
   display: grid;
-  grid-template-columns: auto 262.5px;
-  grid-template-rows: 85px 120px 110px auto;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 120px auto;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
-  grid-template-areas: "equipment supplies" "equipment purse" "equipment encumberance" "equipment general";
+  grid-template-areas: "purse encumberance" "equipment equipment";
 }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-equipment .sheet-container-well-equipment {
   grid-area: equipment;
@@ -4236,19 +4237,19 @@
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-features .sheet-container-well-details {
   grid-area: details;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 5px;
-  grid-row-gap: 5px;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
   grid-template-areas: "details personality" "details ideals" "details bonds" "details flaws";
 }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-features .sheet-container-well-memories {
   grid-area: memories;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 30px) auto;
-  grid-column-gap: 5px;
-  grid-row-gap: 5px;
+  grid-template-columns: repeat(1, 0fr);
+  grid-template-rows: repeat(2, 20px) auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
   grid-template-areas: "memories xp" "memories training" "memories notes";
 }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-features .sheet-container-well-features {
@@ -4898,6 +4899,41 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v17/S6u8w4BMUTPHh30wWw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v17/S6u9w4BMUTPHh7USew8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v17/S6uyw4BMUTPHvxk.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v17/S6u9w4BMUTPHh6UVew8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v17/S6u9w4BMUTPHh50Xew8.ttf) format('truetype');
+}
 fieldset {
   border: 0;
   margin: 0;
@@ -4908,51 +4944,113 @@ fieldset {
 }
 .charsheet .sheet-talessya {
   background-image: url("../img/fondo.png");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  min-height: 1050px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body {
-  width: 550px;
+.charsheet .sheet-talessya .sheet-tabs .sheet-tab .sheet-tab-label {
+  background-color: #8c6c49;
+  color: white;
+  border: none;
+}
+.charsheet .sheet-talessya .sheet-checkbox-cog span {
+  color: white;
+  opacity: 1;
+}
+.charsheet .sheet-talessya .sheet-section-roll2 {
+  display: flex;
+  justify-content: center;
+  grid-area: roll2;
+}
+.charsheet .sheet-talessya .sheet-section-roll2 .sheet-section-roll-advantage,
+.charsheet .sheet-talessya .sheet-section-roll2 .sheet-section-roll-whisper {
+  display: flex;
+}
+.charsheet .sheet-talessya .sheet-section-roll2 .sheet-section-roll-advantage label span,
+.charsheet .sheet-talessya .sheet-section-roll2 .sheet-section-roll-whisper label span {
+  white-space: nowrap;
+  font-size: 11px;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-header {
+  grid-template-areas: ". roll2 . name ." ". logo . details ." ". logo . details .";
+  grid-template-columns: 18px 289px 38px auto 18px;
+  grid-template-rows: auto auto auto;
+  height: 115px;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-logo {
+  padding: 0;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-name,
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-details-panel {
+  height: auto!important;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-name input,
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-details-panel input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 0!important;
+  color: white;
+  background-image: url("../img/barra_horizontal.png");
+  background-size: 101%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  outline: 0;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-name label,
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-details-panel label {
+  color: white!important;
+  font-weight: bolder;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-details {
+  padding: 0 35px;
+  overflow: inherit;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body {
+  width: 600px;
   margin: 0 auto;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs {
   position: relative;
-  width: 550px;
+  width: 600px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab {
-  width: 550px;
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab {
+  width: 600px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-tab-content {
+  padding-top: 25px;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes {
   grid-template-columns: 100px auto;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute {
   background-image: url("../img/atributo_bg.png");
-  grid-template-rows: auto 22px 22px;
+  grid-template-rows: auto 22px 20px;
   height: 98px;
   width: 100px;
   grid-template-columns: 100px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute .sheet-container-header button {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute .sheet-container-header button {
   color: white;
-  font-family: 'first_order_condensedCn', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-size: 11px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute .sheet-container-footer {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute .sheet-container-footer {
   padding: 0;
   margin-left: 49px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute .sheet-container-footer input:hover,
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute .sheet-container-footer input:focus {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute .sheet-container-footer input:hover,
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute .sheet-container-footer input:focus {
   background: none;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute .sheet-container-body {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute .sheet-container-body {
   align-items: flex-end;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute .sheet-container-body input {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-attribute .sheet-container-body input {
   width: 100%;
   font-size: 30px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat {
   display: grid;
   grid-area: secondary;
   grid-column-gap: 5px;
@@ -4962,42 +5060,44 @@ fieldset {
   grid-template-rows: 98px;
   align-items: center;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-box {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-box {
   background-image: url("../img/secundario_bg.png");
   grid-template-rows: auto 15px;
   height: 69px;
   width: 70px;
   background-size: contain;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-box:before {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-box:before {
   content: unset;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-header {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-header {
   padding: 0 5px 3px;
   color: white;
-  font-family: 'first_order_condensedCn', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 900;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-header button {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-header button {
   color: white;
-  font-family: 'first_order_condensedCn', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 900;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-footer {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-footer {
   padding: 0;
   margin-left: 49px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-body {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-body {
   align-items: center;
   padding-top: 6px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-body input {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-combat .sheet-container-body input {
   background: none;
   border: none;
   outline: none;
   box-shadow: none;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-well-health {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-well-health {
   display: grid;
   grid-area: health;
   grid-column-gap: 5px;
@@ -5006,29 +5106,29 @@ fieldset {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 98px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-well-health .sheet-container-header {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-well-health .sheet-container-header {
   padding: 0 5px 3px;
   color: white;
-  font-family: 'first_order_condensedCn', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  font-weight: bold;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bolder;
   text-transform: uppercase;
   width: 100%;
   text-align: center;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-well-health .sheet-container-header button {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-well-health .sheet-container-header button {
   color: white;
-  font-family: 'first_order_condensedCn', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-size: 11px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-well-health .sheet-container-footer {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-well-health .sheet-container-footer {
   padding: 0;
   margin-left: 49px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-well-health .sheet-container-body {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-well-health .sheet-container-body {
   align-items: flex-end;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-well-health .sheet-container-body input {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-well-health .sheet-container-body input {
   background: none;
   border: none;
   outline: none;
@@ -5037,26 +5137,28 @@ fieldset {
   padding: 0;
   margin-bottom: -6px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice {
   grid-template-rows: 15px auto auto;
   height: 98px;
   width: 100px;
   grid-template-columns: 100px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-container-header {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-container-header {
   line-height: 1;
   padding: 0;
   text-align: left;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-container-header button {
-  font-family: 'first_order_condensedCn', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-container-header button {
+  font-family: Lato, Helvetica, Arial, sans-serif;
   font-size: 11px;
   color: black;
   line-height: 1;
   background: none;
   border: 0;
+  text-transform: uppercase;
+  font-weight: 900;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-hit-dice {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-hit-dice {
   background-image: url("../img/terciario_bg.png");
   grid-template-rows: auto 27px;
   height: 48px;
@@ -5067,21 +5169,21 @@ fieldset {
   max-height: 48px;
   min-height: 48px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-hit-dice .sheet-container-body {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-hit-dice .sheet-container-body {
   display: flex;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-hit-dice .sheet-container-body input {
-  font-size: 13px;
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-hit-dice .sheet-container-body input {
+  font-size: 11px;
   max-width: 100%;
   text-align: center;
   max-width: 42px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-hit-dice .sheet-container-footer {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-hit-dice .sheet-container-footer {
   font-size: 10px;
   display: flex;
   margin: 0;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-hit-dice .sheet-container-footer input {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-hit-dice .sheet-container-footer input {
   font-size: 10px;
   width: auto;
   background: none;
@@ -5092,7 +5194,7 @@ fieldset {
   padding: 0;
   max-width: 36px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death {
   grid-template-rows: auto 22px;
   height: 24px;
   width: 120px;
@@ -5102,63 +5204,121 @@ fieldset {
   max-height: 37px;
   min-height: 37px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death .sheet-container-header {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death .sheet-container-header {
   display: flex;
   justify-content: start;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death .sheet-checkbox-image {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death .sheet-checkbox-image {
   height: 8px;
   width: 8px;
   margin-left: 1px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death .sheet-checkbox-image span {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death .sheet-checkbox-image span {
   background-color: transparent;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death .sheet-checkbox-image span.mas {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death .sheet-checkbox-image span.mas {
   background-image: url("../img/icon_mas.png");
   background-size: contain;
   background-repeat: no-repeat;
   border: none;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death .sheet-checkbox-image span.menos {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death .sheet-checkbox-image span.menos {
   background-image: url("../img/icon_menos.png");
   background-size: contain;
   background-repeat: no-repeat;
   border: none;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death .sheet-container-body {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-hitdice .sheet-pc-death .sheet-container-body {
   align-items: flex-start;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-attacks {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-attacks {
   grid-template-columns: 100px auto;
   background-image: url("../img/marco.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  padding: 20px 0px 10px 0px;
+  padding: 10px 0px 10px 0px;
   min-height: 200px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-attacks:before {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-attacks button[type=roll] {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding-left: 5px;
+  box-shadow: none;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-attacks:before {
   content: none;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-attacks .sheet-container-header {
-  font-family: 'first_order_condensedCn', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 15px;
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-attacks .sheet-container-header {
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-size: 13px;
   border-bottom: 0;
   background-image: url(../img/barra_horizontal.png);
   background-size: 101%;
   background-repeat: no-repeat;
   background-position: center bottom;
-  padding-top: 5px;
+  padding: 5px;
   line-height: 1.3;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-inspiration {
+  grid-area: 4;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin-top: 10px;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-inspiration .sheet-container-box {
+  background-image: url("../img/secundario_bg.png");
+  grid-template-rows: auto 22px;
+  height: 98px;
+  width: 100px;
+  background-size: contain;
+  display: grid;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-inspiration .sheet-container-box .sheet-container-header {
+  align-items: center;
+  padding: 0;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-inspiration .sheet-container-box .sheet-container-body {
+  align-self: center;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-inspiration .sheet-container-box .sheet-container-body input[type=checkbox] {
+  border: 0;
+  background: transparent;
+  width: 50px;
+  height: 50px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-container-inspiration .sheet-container-box .sheet-container-body input[type=checkbox]:checked ~ span {
+  background-image: url("../img/inspiracion.png");
+  height: 42px;
+  width: 51px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  background-position: center;
+  z-index: -1;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-herramientas {
+  grid-area: 5;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality {
   grid-template-columns: 100px auto;
   background-image: url("../img/marco.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   padding: 20px 0;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality .sheet-container-box {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality .sheet-container-box {
   display: block;
   min-height: auto;
   background-image: url("../img/barra_horizontal.png");
@@ -5166,17 +5326,20 @@ fieldset {
   background-repeat: no-repeat;
   background-position: center bottom;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality .sheet-container-box .sheet-container-header {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality .sheet-container-box .sheet-container-header {
   margin: 0;
   padding: 0;
-  font-family: 'first_order_condensedCn', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Lato, Helvetica, Arial, sans-serif;
   font-size: 11px;
   color: black;
-  padding: 5px 0px 0px 15px;
+  padding: 5px 0px 0px 20px;
   text-align: left;
   display: block;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality .sheet-container-box .sheet-container-body textarea {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality .sheet-container-box .sheet-container-header.more-padding {
+  padding-top: 10px;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality .sheet-container-box .sheet-container-body textarea {
   height: auto;
   margin-bottom: 0;
   background: none;
@@ -5184,23 +5347,26 @@ fieldset {
   border: 0;
   box-shadow: none;
   padding: 0px 15px 5px 15px;
-  font-size: 7px;
+  font-size: 10px;
   line-height: 1.2em;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality .sheet-container-box:last-of-type {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality .sheet-container-box:last-of-type {
   background-image: none;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-equipo {
+  padding: 5px 0px;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills {
   grid-template-columns: 100px auto;
   background-image: url("../img/marco.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   padding: 10px 0;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills .sheet-container-header {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills .sheet-container-header {
   margin: 0;
   padding: 0;
-  font-family: 'first_order_condensedCn', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Lato, Helvetica, Arial, sans-serif;
   font-size: 11px;
   color: black;
   padding: 5px 0px 0px 15px;
@@ -5212,11 +5378,11 @@ fieldset {
   background-repeat: no-repeat;
   background-position: center bottom;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills .sheet-container-body {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills .sheet-container-body {
   column-count: 2;
-  padding: 7px 10px;
+  padding: 7px 15px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills .sheet-pc-skill {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills .sheet-pc-skill {
   display: block;
   min-height: auto;
   background-image: url("../img/barra_horizontal.png");
@@ -5228,15 +5394,15 @@ fieldset {
   align-items: center;
   line-height: 1.1em;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills .sheet-pc-skill .sheet-checkbox-image {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills .sheet-pc-skill .sheet-checkbox-image {
   width: 8px;
   height: 8px;
   margin-right: 3px;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills .sheet-pc-skill select {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills .sheet-pc-skill select {
   display: none;
 }
-.charsheet .sheet-talessya .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills .sheet-pc-skill button {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills .sheet-pc-skill button {
   text-align: left;
   border: 0;
   background: none;
@@ -5247,6 +5413,24 @@ fieldset {
   vertical-align: baseline;
   color: inherit;
   margin-left: 3px;
-  font-family: 'first_order_condensedCn', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Lato, Helvetica, Arial, sans-serif;
   color: black;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-biografia {
+  height: 100%!important;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-biografia textarea {
+  height: 100%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tab-spells .sheet-container-well-spells {
+  width: 840px;
+  position: absolute;
+  left: -120px;
+  background: rgba(225, 214, 205, 0.8);
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tab-spells .sheet-container-well-spells .sheet-container-spell .sheet-container-body {
+  overflow: visible;
 }

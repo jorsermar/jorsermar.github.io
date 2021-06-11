@@ -204,7 +204,7 @@
   min-width: 0;
   overflow: hidden; }
 /*  .charsheet .sheet-talessya .sheet-container-box::before {
-    border-image: url("@{img_prefix}sheet-box-border.png") 50 50 50 50 fill stretch;
+    border-image: url("@{img_prefix}borde-talessya.png") 50 50 50 50 fill stretch;
     border-style: solid;
     border-width: 15px 15px;
     box-sizing: border-box;
@@ -349,7 +349,7 @@
   position: relative;
   z-index: 0; }
   .charsheet .sheet-talessya .sheet-container-panel::before {
-    border-image: url("@{img_prefix}sheet-box-border.png") 50 50 50 50 fill stretch;
+    border-image: url("@{img_prefix}borde-talessya.png") 50 50 50 50 fill stretch;
     border-style: solid;
     border-width: 15px 15px;
     box-sizing: border-box;
@@ -414,7 +414,7 @@
   z-index: 0;
   margin-top: 3px; }
   .charsheet .sheet-talessya .sheet-container-spell::before {
-    border-image: url("@{img_prefix}sheet-box-border.png") 50 50 50 50 fill stretch;
+    border-image: url("@{img_prefix}borde-talessya.png") 50 50 50 50 fill stretch;
     border-style: solid;
     border-width: 15px 15px;
     box-sizing: border-box;
@@ -1641,8 +1641,9 @@
       width: 16.66667%;
       z-index: 1; }
       .sheet-tabs .sheet-tab > input[type="radio"]:hover ~ .sheet-tab-label {
-        background: #e5fffb;
-        border-bottom-color: #dbfff9; }
+        background: white;
+        color: #8c6c49;
+        border-bottom-color: #8c6c49; }
     .sheet-tabs .sheet-tab > .sheet-tab-label {
       align-items: center;
       background: #dddddd;
@@ -2482,14 +2483,12 @@
   grid-area: other; }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-equipment > input[type="radio"]:checked ~ .sheet-tab-content {
   display: grid;
-  grid-template-columns: auto 262.5px;
-  grid-template-rows: 85px 120px 110px auto;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 120px auto;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
-  grid-template-areas: "equipment supplies"
- "equipment purse"
- "equipment encumberance"
- "equipment general"; }
+  grid-template-areas: "purse encumberance"
+ "equipment equipment"; }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-equipment .sheet-container-well-equipment {
   grid-area: equipment;
   display: grid; }
@@ -2741,10 +2740,10 @@
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-features .sheet-container-well-details {
   grid-area: details;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 5px;
-  grid-row-gap: 5px;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
   grid-template-areas: "details personality"
  "details ideals"
  "details bonds"
@@ -2752,10 +2751,10 @@
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-features .sheet-container-well-memories {
   grid-area: memories;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 30px) auto;
-  grid-column-gap: 5px;
-  grid-row-gap: 5px;
+  grid-template-columns: repeat(1, 0fr);
+    grid-template-rows: repeat(2,20px) auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
   grid-template-areas: "memories xp"
  "memories training"
  "memories notes"; }
