@@ -382,11 +382,25 @@ fieldset {
 
 							.sheet-pc-attacks {
 					    		grid-template-columns: 100px auto;
-							    background-image: url("@{img_prefix}marco.png");
+							    /*background-image: url("@{img_prefix}marco.png");
 							    background-size:100% 100%;
-							    background-repeat: no-repeat;
+							    background-repeat: no-repeat;*/
 							    padding: 10px 0px 10px 0px;
 							    min-height: 200px;
+							    &::before {
+								    border-image: url("@{img_prefix}borde-talessya.png") 50 50 50 50 fill stretch;
+								    border-style: solid;
+								    border-width: 35px 35px;
+								    box-sizing: border-box;
+								    content: '';
+								    display: block;
+								    height: 100%;
+								    left: 0;
+								    position: absolute;
+								    top: 0;
+								    width: 100%;
+								    z-index: -1; 
+						    	}
 
 							    button[type=roll]{
 								    width: 100%;
@@ -395,10 +409,6 @@ fieldset {
 								    border: none;
 								    padding-left: 5px;
 								    box-shadow: none;
-							    }
-
-							    &:before {
-							    	content: none;
 							    }
 
 							    .sheet-container-header {
@@ -471,15 +481,45 @@ fieldset {
 				    			grid-column-start: 1;
 				    			grid-column-end: 3;
 
+				    			button {
+				    			text-align: left;
+							    border: 0;
+							    background: 0 0;
+							    box-shadow: none;
+							    height: 18px;
+							    margin: 0;
+							    padding: 0;
+							    vertical-align: baseline;
+							    color: inherit;
+							    margin-left: 3px;
+							    font-family: Lato,Helvetica,Arial,sans-serif;
+							    color: #000;
+				    			}
+
 				    		}
 						}
 
 						.sheet-container-well-personality {
 							grid-template-columns: 100px auto;
-						    background-image: url("@{img_prefix}marco.png");
+						    /*background-image: url("@{img_prefix}marco.png");
 						    background-size:100% 100%;
-						    background-repeat: no-repeat;
-						    padding: 20px 0;
+						    background-repeat: no-repeat;*/
+						    padding: 10px 0;
+
+						    &::before {
+							    border-image: url("@{img_prefix}borde-talessya.png") 50 50 50 50 fill stretch;
+							    border-style: solid;
+							    border-width: 35px 35px;
+							    box-sizing: border-box;
+							    content: '';
+							    display: block;
+							    height: 100%;
+							    left: 0;
+							    position: absolute;
+							    top: 0;
+							    width: 100%;
+							    z-index: -1; 
+						    }
 
 						    .sheet-container-box {
 						        display: block;
@@ -533,10 +573,24 @@ fieldset {
 
 						.sheet-container-well-skills {
 							grid-template-columns: 100px auto;
-						    background-image: url("@{img_prefix}marco.png");
+						    /*background-image: url("@{img_prefix}marco.png");
 						    background-size:100% 100%;
-						    background-repeat: no-repeat;
+						    background-repeat: no-repeat;*/
 						    padding: 10px 0;
+						    &::before {
+							    border-image: url("@{img_prefix}borde-talessya.png") 50 50 50 50 fill stretch;
+							    border-style: solid;
+							    border-width: 35px 35px;
+							    box-sizing: border-box;
+							    content: '';
+							    display: block;
+							    height: 100%;
+							    left: 0;
+							    position: absolute;
+							    top: 0;
+							    width: 100%;
+							    z-index: -1; 
+						    }
 
 						   .sheet-container-header {
 					        	margin: 0;
@@ -601,6 +655,49 @@ fieldset {
 					}
 				}
 
+				.sheet-coinage {
+					grid-area: coinage;
+					display: grid;
+    				grid-template-columns: repeat(5,1fr);
+    				grid-row-gap: 5px;
+
+					.sheet-coin {
+						width: 40px;
+						height: 40px;
+						background-repeat: no-repeat;
+						background-size: contain;
+						background-position: center center;
+					}
+
+					.sheet-reino1 {
+						background-image: url("@{img_prefix}reino1.png");
+					}
+					.sheet-reino2 {
+						background-image: url("@{img_prefix}reino2.png");
+					}
+					.sheet-reino3 {
+						background-image: url("@{img_prefix}reino3.png");
+					}
+					.sheet-reino4 {
+						background-image: url("@{img_prefix}reino4.png");
+					}
+					.sheet-reino5 {
+						background-image: url("@{img_prefix}reino5.png");
+					}
+					.sheet-reino6 {
+						background-image: url("@{img_prefix}reino6.png");
+					}
+					.sheet-reino7 {
+						background-image: url("@{img_prefix}reino7.png");
+					}
+					.sheet-reino8 {
+						background-image: url("@{img_prefix}reino8.png");
+					}
+					.sheet-reino9 {
+						background-image: url("@{img_prefix}reino9.png");
+					}
+				}
+
 				.sheet-biografia {
 					height: 100%!important;
 					textarea {
@@ -612,11 +709,15 @@ fieldset {
 				}
 
 				.sheet-tab-spells {
-					.sheet-container-well-spells{
-						width: 840px;
-	    				position: absolute;
-	    				left: -120px;
-	    				background: rgba(225, 214, 205, 0.8);
+					.sheet-tab-content {
+					    width: 840px;
+					    position: absolute;
+					    left: -120px;
+					    background: rgba(225, 214, 205, 0.8);
+					    top: 30px;
+					    .sheet-container-header {
+					    	padding: 0;
+					    }
 
 	    				.sheet-container-spell {
 	    					.sheet-container-body {

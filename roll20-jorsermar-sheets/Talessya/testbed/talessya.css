@@ -1,4 +1,4 @@
-/*! Talessya Roll 20 Character Sheet - v0.1.0 - 2021-06-11
+/*! Talessya Roll 20 Character Sheet - v0.1.0 - 2021-06-12
 * https://jorsermar.github.io/roll20-character-sheets/
 * Copyright (c) 2021 Jorge Serrano; Licensed  */
 /*
@@ -1361,7 +1361,7 @@
 .charsheet .sheet-talessya .sheet-container-panel::before {
   border-image: url("../img/borde-talessya.png") 50 50 50 50 fill stretch;
   border-style: solid;
-  border-width: 15px 15px;
+  border-width: 35px 35px;
   box-sizing: border-box;
   content: '';
   display: block;
@@ -1380,7 +1380,7 @@
   line-height: 14px;
   margin-left: 2px;
   margin-right: 2px;
-  padding-top: 4px;
+  padding: 15px 0px 5px;
   text-align: center;
   text-transform: uppercase;
 }
@@ -3930,7 +3930,7 @@
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-equipment > input[type="radio"]:checked ~ .sheet-tab-content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 120px auto;
+  grid-template-rows: 165px auto;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   grid-template-areas: "purse encumberance" "equipment equipment";
@@ -3949,11 +3949,11 @@
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-equipment .sheet-container-well-equipment-purse {
   grid-area: purse;
   display: grid;
-  grid-template-rows: repeat(3, 30px);
+  grid-template-rows: 30px 30px 40px;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 5px;
   grid-column-gap: 5px;
-  grid-template-areas: "cp gp" "sp pp" "ep other" ". .";
+  grid-template-areas: "cp gp" "sp pp" "coinage coinage";
 }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-equipment .sheet-container-well-equipment-encumberance {
   grid-area: encumberance;
@@ -4560,7 +4560,7 @@
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-spells .sheet-container-well-spell-attributes {
   display: grid;
   grid-column-gap: 5px;
-  grid-template-columns: repeat(6, 1fr) 3fr;
+  grid-template-columns: repeat(4, 1fr) 3fr;
 }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-spells .sheet-container-well-spell-attributes .sheet-pc-spell-symbols {
   font-size: 11px;
@@ -4627,7 +4627,7 @@
   grid-row-gap: 10px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto auto;
-  grid-auto-flow: column;
+  grid-auto-flow: row;
 }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-tab-spells .sheet-container-well-spells .sheet-spells-8-9 {
   display: grid;
@@ -5233,11 +5233,25 @@ fieldset {
 }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-attacks {
   grid-template-columns: 100px auto;
-  background-image: url("../img/marco.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  /*background-image: url("@{img_prefix}marco.png");
+							    background-size:100% 100%;
+							    background-repeat: no-repeat;*/
   padding: 10px 0px 10px 0px;
   min-height: 200px;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-attacks::before {
+  border-image: url("../img/borde-talessya.png") 50 50 50 50 fill stretch;
+  border-style: solid;
+  border-width: 35px 35px;
+  box-sizing: border-box;
+  content: '';
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
 }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-attacks button[type=roll] {
   width: 100%;
@@ -5246,9 +5260,6 @@ fieldset {
   border: none;
   padding-left: 5px;
   box-shadow: none;
-}
-.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-attacks:before {
-  content: none;
 }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-pc-attacks .sheet-container-header {
   font-family: Lato, Helvetica, Arial, sans-serif;
@@ -5311,12 +5322,40 @@ fieldset {
   grid-column-start: 1;
   grid-column-end: 3;
 }
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-attributes .sheet-herramientas button {
+  text-align: left;
+  border: 0;
+  background: 0 0;
+  box-shadow: none;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  color: inherit;
+  margin-left: 3px;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  color: #000;
+}
 .charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality {
   grid-template-columns: 100px auto;
-  background-image: url("../img/marco.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  padding: 20px 0;
+  /*background-image: url("@{img_prefix}marco.png");
+						    background-size:100% 100%;
+						    background-repeat: no-repeat;*/
+  padding: 10px 0;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality::before {
+  border-image: url("../img/borde-talessya.png") 50 50 50 50 fill stretch;
+  border-style: solid;
+  border-width: 35px 35px;
+  box-sizing: border-box;
+  content: '';
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
 }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-personality .sheet-container-box {
   display: block;
@@ -5358,10 +5397,24 @@ fieldset {
 }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills {
   grid-template-columns: 100px auto;
-  background-image: url("../img/marco.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  /*background-image: url("@{img_prefix}marco.png");
+						    background-size:100% 100%;
+						    background-repeat: no-repeat;*/
   padding: 10px 0;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills::before {
+  border-image: url("../img/borde-talessya.png") 50 50 50 50 fill stretch;
+  border-style: solid;
+  border-width: 35px 35px;
+  box-sizing: border-box;
+  content: '';
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
 }
 .charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tabs .sheet-tab .sheet-container-well-skills .sheet-container-header {
   margin: 0;
@@ -5416,6 +5469,46 @@ fieldset {
   font-family: Lato, Helvetica, Arial, sans-serif;
   color: black;
 }
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-coinage {
+  grid-area: coinage;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-row-gap: 5px;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-coinage .sheet-coin {
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-coinage .sheet-reino1 {
+  background-image: url("../img/reino1.png");
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-coinage .sheet-reino2 {
+  background-image: url("../img/reino2.png");
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-coinage .sheet-reino3 {
+  background-image: url("../img/reino3.png");
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-coinage .sheet-reino4 {
+  background-image: url("../img/reino4.png");
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-coinage .sheet-reino5 {
+  background-image: url("../img/reino5.png");
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-coinage .sheet-reino6 {
+  background-image: url("../img/reino6.png");
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-coinage .sheet-reino7 {
+  background-image: url("../img/reino7.png");
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-coinage .sheet-reino8 {
+  background-image: url("../img/reino8.png");
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-coinage .sheet-reino9 {
+  background-image: url("../img/reino9.png");
+}
 .charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-biografia {
   height: 100%!important;
 }
@@ -5425,12 +5518,16 @@ fieldset {
   border: none;
   box-shadow: none;
 }
-.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tab-spells .sheet-container-well-spells {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tab-spells .sheet-tab-content {
   width: 840px;
   position: absolute;
   left: -120px;
   background: rgba(225, 214, 205, 0.8);
+  top: 30px;
 }
-.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tab-spells .sheet-container-well-spells .sheet-container-spell .sheet-container-body {
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tab-spells .sheet-tab-content .sheet-container-header {
+  padding: 0;
+}
+.charsheet .sheet-talessya .sheet-section-pc .sheet-section-pc-body .sheet-tab-spells .sheet-tab-content .sheet-container-spell .sheet-container-body {
   overflow: visible;
 }

@@ -959,7 +959,7 @@
                                     <select name="attr_class">
                                         <option value="">Elige</option>
                                         <option value="Barbarian">Bárbaro</option>
-                                        <option value="Bard">Bard</option>
+                                        <option value="Bard">Bardo</option>
                                         <option value="Cleric">Clérigo</option>
                                         <option value="Druid">Druida</option>
                                         <option value="Fighter">Guerrero</option>
@@ -1563,11 +1563,110 @@
                                     </div>
                                 </div>
 
-                                <div class="sheet-container-well sheet-container-well-personality sheet-herramientas">
-                                    <div class="sheet-container-box sheet-pc-personality">
+                                <div class="sheet-container-well sheet-herramientas">
+                                    <div class="sheet-container-panel">
                                         <div class="sheet-container-header">Competencias en herramientas</div>
                                         <div class="sheet-container-body">
-                                            <textarea name="attr_herramientas" title="@{tools}" rows="5"></textarea>
+                                            <div class="sheet-container-body">
+                                        <div class="sheet-container-body-header">
+                                            <span>Modificador</span>
+                                            <span>Herramienta/Habilidad</span>
+                                        </div>
+                                        <fieldset class="repeating_tool">
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-tool">
+                                                <div class="sheet-checkbox-cog">
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                    <span class="sheet-toggle-icon"></span>
+                                                </div>
+                                                <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                                <div class="sheet-toggle-checked">
+                                                    <div class="sheet-form">
+                                                        <div class="sheet-form-header">Editar Competencia</div>
+                                                        <div class="sheet-form-body">
+                                                            <div class="sheet-form-group">
+                                                                <label>Nombre:</label>
+                                                                <input type="text" name="attr_toolname">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Bono de Competencia:</label>
+                                                                <select name="attr_toolbonus_base">
+                                                                    <option value="(@{pb})" selected="selected">Competente</option>
+                                                                    <option value="(@{pb}*2)">Pericia</option>
+                                                                    <option value="(floor(@{pb}/2))">Aprendiz de mucho</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Atributo:</label>
+                                                                <select name="attr_toolattr_base">
+                                                                    <option value="@{strength_mod}" selected="selected">Fue</option>
+                                                                    <option value="@{dexterity_mod}">Des</option>
+                                                                    <option value="@{constitution_mod}">Con</option>
+                                                                    <option value="@{intelligence_mod}">Int</option>
+                                                                    <option value="@{wisdom_mod}">Sab</option>
+                                                                    <option value="@{charisma_mod}">Car</option>
+                                                                    <option value="?{Attribute?|Fuerza,@{strength_mod}|Destreza,@{dexterity_mod}|Constitución,@{constitution_mod}|Inteligencia,@{intelligence_mod}|Sabiduría,@{wisdom_mod}|Carisma,@{charisma_mod}}">Query</option>
+                                                                </select>
+                                                                <label>Mods:</label>
+                                                                <input type="text" name="attr_tool_mod" title="@{tool_mod}" value="0">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sheet-toggle-unchecked">
+                                                    <div class="sheet-pc-tool">
+                                                        <button type="roll" name="roll_tool" value="@{wtype}&{template:simple} {{rname=@{toolname}}} {{mod=@{toolbonus}}} {{r1=[[@{d20}+@{toolbonus}@{pbd_safe}]]}} @{rtype}+@{toolbonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output}">
+                                                            <span></span>
+                                                            <span name="attr_toolname"></span>
+                                                            <span name="attr_toolbonus_display"></span>
+                                                            <input type="hidden" name="attr_toolbonus">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <input type="hidden" name="attr_global_skill_mod_flag" class="sheet-field-toggle">
+                                        <div class="sheet-form sheet-form-inline">
+                                            <div class="sheet-form-header">Global Tool Modifiers</div>
+                                            <div class="sheet-form-body">
+                                                <fieldset class="repeating_skillmod">
+                                                    <div class="sheet-fieldset-item">
+                                                        <div class="sheet-checkbox-cog">
+                                                            <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                            <span class="sheet-toggle-icon"></span>
+                                                        </div>
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                                        <div class="sheet-toggle-checked">
+                                                            <div class="sheet-form">
+                                                                <div class="sheet-form-header">Edit Modifier</div>
+                                                                <div class="sheet-form-body">
+                                                                    <div class="sheet-form-group">
+                                                                        <div class="sheet-form-checkbox">
+                                                                            <input type="checkbox" name="attr_global_skill_active_flag" value="1">
+                                                                        </div>
+                                                                        <input type="text" name="attr_global_skill_name">
+                                                                    </div>
+                                                                    <div class="sheet-form-group">
+                                                                        <label>Roll:</label>
+                                                                        <input type="text" name="attr_global_skill_roll">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sheet-toggle-unchecked">
+                                                            <div class="sheet-pc-tool-modifier">
+                                                                <div class="sheet-checkbox-image">
+                                                                    <input type="checkbox" name="attr_global_skill_active_flag" value="1">
+                                                                    <span></span>
+                                                                </div>
+                                                                <span name="attr_global_skill_name"></span>
+                                                                <span name="attr_global_skill_roll"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
                                         </div>
                                     </div>
                                     <!--<div class="sheet-container-box sheet-pc-personality">
@@ -1684,50 +1783,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="sheet-container-panel sheet-pc-proficiencies">
-                                    <div class="sheet-container-header">Proficiencies & Languages</div>
-                                    <div class="sheet-container-body">
-                                        <div class="sheet-container-body-header">
-                                            <span>Type</span>
-                                            <span>Proficiency</span>
-                                        </div>
-                                        <input type="hidden" name="attr_simpleproficencies" value="complex">
-                                        <textarea name="attr_other_proficiencies_and_languages" hidden></textarea>
-                                        <fieldset class="repeating_proficiencies">
-                                            <div class="sheet-fieldset-item sheet-fieldset-item-proficiency">
-                                                <div class="sheet-checkbox-cog">
-                                                    <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
-                                                    <span class="sheet-toggle-icon"></span>
-                                                </div>
-                                                <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
-                                                <div class="sheet-toggle-checked">
-                                                    <div class="sheet-form">
-                                                        <div class="sheet-form-header">Edit Proficiency</div>
-                                                        <div class="sheet-form-body">
-                                                            <div class="sheet-form-group">
-                                                                <select name="attr_prof_type">
-                                                                    <option value="LANGUAGE" selected="selected">Language</option>
-                                                                    <option value="WEAPON">Weapon</option>
-                                                                    <option value="ARMOR">Armor</option>
-                                                                    <option value="OTHER">Other</option>
-                                                                </select>
-                                                                <input type="text" name="attr_name">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="sheet-toggle-unchecked">
-                                                    <div class="sheet-pc-proficiency">
-                                                        <button type="roll" name="roll_output" value="@{wtype}&{template:traits} @{charname_output} {{name=@{prof_type} PROFICIENCY}} {{description=@{name}}}">
-                                                            <span name="attr_prof_type"></span>
-                                                            <span name="attr_name"></span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                </div>-->
+                                -->
                             </div>
                             <div>
                                 <div class="sheet-container-well sheet-container-well-personality">
@@ -3178,7 +3234,7 @@
                                             <input type="text" name="attr_character_height_detail" title="@{character_height_detail}">
                                         </div>
                                         <div class="sheet-pc-detail">
-                                            <label>Weight</label>
+                                            <label>Peso</label>
                                             <select name="attr_character_weight" title="@{character_weight}">
                                                 <option value=""></option>
                                                 <option value="very_thin">Very thin</option>
@@ -3660,14 +3716,6 @@
                                         <input type="text" name="attr_gp" title="@{gp}">
                                     </div>
                                 </div>
-                                <div class="sheet-container-bar sheet-pc-purse-ep">
-                                    <div class="sheet-container-header">
-                                        <input type="text" name="attr_ep_title" title="@{ep_title}" value="ELECTRO">
-                                    </div>
-                                    <div class="sheet-container-body">
-                                        <input type="text" name="attr_ep" title="@{ep}">
-                                    </div>
-                                </div>
                                 <div class="sheet-container-bar sheet-pc-purse-pp">
                                     <div class="sheet-container-header">
                                         <input type="text" name="attr_pp_title" title="@{pp_title}" value="PLATINO">
@@ -3676,19 +3724,11 @@
                                         <input type="text" name="attr_pp" title="@{pp}">
                                     </div>
                                 </div>
-                                <div class="sheet-container-bar sheet-pc-purse-other">
-                                    <div class="sheet-container-header">
-                                        <input type="text" name="attr_currency" title="@{currency}">
-                                    </div>
-                                    <div class="sheet-container-body">
-                                        <input type="text" name="attr_currency_value" title="@{currency_value}">
-                                    </div>
-                                </div>
                             </div>
                             <div class="sheet-container-well sheet-container-well-equipment-encumberance">
-                                <input type="hidden" name="attr_use_inventory_slots" value="1" class="sheet-field-untoggle">
+                                <input type="hidden" name="attr_use_inventory_slots" value="0" class="sheet-field-untoggle">
                                 <div class="sheet-container-box sheet-pc-weight">
-                                    <div class="sheet-container-header">Peso</div>
+                                    <div class="sheet-container-header">Peso transportado</div>
                                     <div class="sheet-container-body">
                                         <input type="text" name="attr_weighttotal" title="@{weighttotal}">
                                         <span>/</span>
@@ -3699,7 +3739,7 @@
                                         <span>Máximo</span>
                                     </div>
                                 </div>
-                                <input type="hidden" name="attr_use_inventory_slots" value="1" class="sheet-field-toggle">
+                                <!--<input type="hidden" name="attr_use_inventory_slots" value="0" class="sheet-field-toggle">
                                 <div class="sheet-container-box sheet-pc-slots">
                                     <div class="sheet-container-header">Inventory Slots</div>
                                     <div class="sheet-container-body">
@@ -3708,10 +3748,10 @@
                                         <span name="attr_slotsmaximum" title="@{slotsmaximum}"></span>
                                     </div>
                                     <div class="sheet-container-footer">
-                                        <span>Current</span>
-                                        <span>Maximum</span>
+                                        <span>Actual</span>
+                                        <span>Máximo</span>
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="sheet-pc-carrying-status">
                                     <input type="hidden" class="sheet-pc-encumberance" name="attr_encumberance">
                                     <span class="sheet-pc-unencumbered">Sin estorbo</span>
@@ -3883,11 +3923,11 @@
                                                     <div class="sheet-toggle-unchecked">
                                                         <div class="sheet-pc-item">
                                                             <div class="sheet-pc-item-header">
-                                                                <span>Item Name</span>
-                                                                <span>Quantity</span>
-                                                                <span>Weight</span>
+                                                                <span>Nombre del Objeto</span>
+                                                                <span>Cantidad</span>
+                                                                <span>Peso</span>
                                                                 <span>huecos</span>
-                                                                <span>Notches</span>
+                                                                <span>Muescas</span>
                                                             </div>
                                                             <div class="sheet-pc-item-content">
                                                                 <span class="sheet-pc-item-name">
@@ -3931,11 +3971,11 @@
                                                             </span>
                                                         </div>
                                                         <div class="sheet-pc-equipment-container-footer">
-                                                            <span>Item Name</span>
-                                                            <span>Quantity</span>
-                                                            <span>Weight</span>
+                                                            <span>Nombre del Objeto</span>
+                                                            <span>Cantidad</span>
+                                                            <span>Peso</span>
                                                             <span>huecos</span>
-                                                            <span>Notches</span>
+                                                            <span>Muescas</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3990,7 +4030,7 @@
                                         <input type="text" name="attr_class_resource_max" title="@{class_resource_max}">
                                     </div>
                                 </div>
-                                <div class="sheet-container-box sheet-pc-resource-other">
+                                <!--<div class="sheet-container-box sheet-pc-resource-other">
                                     <div class="sheet-container-header">
                                         <input type="text" name="attr_other_resource_name" title="@{other_resource_name}" class="sheet-input-overlay">
                                         <span name="attr_other_resource_name">Otro Recurso</span>
@@ -4000,7 +4040,7 @@
                                         <span>/</span>
                                         <input type="text" name="attr_other_resource_max" title="@{other_resource_max}">
                                     </div>
-                                </div>
+                                </div>-->
                                 <!--<div class="sheet-container-box sheet-pc-burnout">
                                     <div class="sheet-container-header">
                                         <button type="roll" name="roll_burnout" value="@{wtype}&{template:simple} {{rname=Spell Burnout}} {{mod=@{spell_burnout}}} {{r1=[[@{spell_burnout}]]}} {{normal=1}} @{charname_output}">Spell Burnout</button>
@@ -6845,7 +6885,7 @@
                                                     <label>Encumberance:</label>
                                                     <select name="attr_encumberance_setting" title="@{encumberance_setting}">
                                                         <option value="off">Simple</option>
-                                                        <option value="on">Variant (PHB p176)</option>
+                                                        <option value="on" selected="selected">Variant (PHB p176)</option>
                                                         <option value="disabled">Desactivado</option>
                                                     </select>
                                                 </div>
