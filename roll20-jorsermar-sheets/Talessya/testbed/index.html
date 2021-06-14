@@ -3646,10 +3646,10 @@
                                                         <div class="sheet-form-body">
                                                             <div class="sheet-form-group">
                                                                 <select name="attr_prof_type">
-                                                                    <option value="LANGUAGE" selected="selected">Idioma</option>
-                                                                    <option value="WEAPON">Arma</option>
-                                                                    <option value="ARMOR">Armadura</option>
-                                                                    <option value="OTHER">Otros</option>
+                                                                    <option value="Idioma" selected="selected">Idioma</option>
+                                                                    <option value="Arma">Arma</option>
+                                                                    <option value="Armadura">Armadura</option>
+                                                                    <option value="Otros">Otros</option>
                                                                 </select>
                                                                 <input type="text" name="attr_name">
                                                             </div>
@@ -3658,7 +3658,7 @@
                                                 </div>
                                                 <div class="sheet-toggle-unchecked">
                                                     <div class="sheet-pc-proficiency">
-                                                        <button type="roll" name="roll_output" value="@{wtype}&{template:traits} @{charname_output} {{name=@{prof_type} PROFICIENCY}} {{description=@{name}}}">
+                                                        <button type="roll" name="roll_output" value="@{wtype}&{template:traits} @{charname_output} {{name=COMPETENCIA EN @{prof_type}}} {{description=@{name}}}">
                                                             <span name="attr_prof_type"></span>
                                                             <span name="attr_name"></span>
                                                         </button>

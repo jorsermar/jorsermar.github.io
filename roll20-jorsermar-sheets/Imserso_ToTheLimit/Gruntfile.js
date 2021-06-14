@@ -26,8 +26,8 @@ module.exports = function(grunt) {
                 banner: '<%= banner %>',
                 cleancss: true,
                 modifyVars: {
-                    fonts_prefix: '"https://ramblurr.github.io/roll20-character-sheets/font/"',
-                    img_prefix: '"https://ramblurr.github.io/roll20-character-sheets/img/"',
+                    fonts_prefix: '"https://jorsermar.github.io/roll20-jorsermar-sheets/Imserso_ToTheLimit/font/"',
+                    img_prefix: '"https://jorsermar.github.io/roll20-jorsermar-sheets/Imserso_ToTheLimit/img/"',
                 }
             },
             files: {
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
         production: {
             options: {
                 globals: {
-                    img_prefix: 'https://ramblurr.github.io/roll20-character-sheets/img/'
+                    img_prefix: 'https://jorsermar.github.io/roll20-jorsermar-sheets/Imserso_ToTheLimit/img/'
                 }
             },
             src: 'src/sheet.html',
