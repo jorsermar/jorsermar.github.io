@@ -49,17 +49,258 @@ fieldset {
     padding: 3px;
 }
 
+.sheet-section-header {
+    font-size: 22px;
+    .fontHeaders();
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.niceFont() {
+    font-family: 'Over the Rainbow';
+    color: #575656;
+    transform: rotate(-10deg);
+}
+
 /* imserso generic styles */
 @import "imserso.less";
 
-.sheet-imserso {
-    max-width: 1055px;
-    min-width: 755px;
-    background-image: url('@{img_prefix}bg.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top center;
-    .sheet-personal-details {
-        display: grid
+.charsheet {
+    background-color: #bfd3b2;
+    padding-top: 10px!important;
+    .sheet-imserso {
+        margin: 10px 0px;
+        border-radius: 8px;
+        max-width: 1055px;
+        min-width: 755px;
+        background: white;
+        .sheet-personal-details {
+            display: grid;
+            grid-template-columns: auto 200px;
+            padding: 20px 20px 0px 20px;
+            grid-column-gap: 10px;
+
+            .sheet-datos-body {
+                border: 2px solid black;
+                display: grid;
+                grid-template-areas: "nombre nombre"
+                            "pj     pj"
+                            "arquetipo talento"
+                            "lugar  anyos"
+                            "profesion partido"
+                            "familia familia";
+                    grid-template-columns: auto auto;
+
+                .field-wrap {
+                    border: 1px solid rgba(0,0,0,0.5);
+
+                    label {
+                        text-transform: uppercase;
+                        font-weight: normal;
+                        margin-bottom: 0;
+                        padding: 3px 0px 0px 5px;
+                    }
+
+                    input, textarea, select {
+                        background: transparent;
+                        border: none;
+                        box-shadow: none;
+                        width: 100%;
+                        margin: 0;
+                    }
+                }
+
+                .field-wrap:nth-of-type(1) {
+                    grid-area: nombre;
+                }
+
+                .field-wrap:nth-of-type(2) {
+                    grid-area: pj;
+                }
+
+                .field-wrap:nth-of-type(3) {
+                    grid-area: arquetipo;
+                }
+
+                .field-wrap:nth-of-type(4) {
+                    grid-area: talento;
+                }
+
+                .field-wrap:nth-of-type(5) {
+                    grid-area: lugar;
+                }
+
+                .field-wrap:nth-of-type(6) {
+                    grid-area: anyos;
+                }
+
+                .field-wrap:nth-of-type(7) {
+                    grid-area: profesion;
+                }
+
+               .field-wrap:nth-of-type(8) {
+                    grid-area: partido;
+                }
+
+               .field-wrap:nth-of-type(9) {
+                    grid-area: familia;
+                }
+            }
+
+           .sheet-logo {
+                max-width: 200px;
+
+                .sheet-datos-body {
+                    grid-template-areas: "nombre pj"
+                            "arquetipo talento";
+                    input {
+                        font-size: 21px;
+                        text-align: center;
+                    }
+                }
+
+                .sheet-derivados {
+                    display: grid;
+                    grid-template-areas: "bemoles nervio"
+                                         "yayopoints yayopoints";
+                    margin-top:10px;
+
+                    .sheet-bemoles {
+                        grid-area: bemoles;
+                        margin: 10px;
+                        border-right: 5px solid black;
+                    }
+
+                   .sheet-nervio {
+                        grid-area: nervio;
+                        margin: 10px;
+                    }
+                            
+                    label {
+                        .niceFont();
+                    }
+
+                    input {
+                        background: none;
+                        border: none;
+                        box-shadow: none;
+                        .niceFont();
+                        transform: none;
+                    }
+
+                    .sheet-domino {
+                        position: absolute;
+                        height: 75px;
+                        width: 196px;
+                        border: 1px solid black;
+                        border-radius: 12px;
+                        box-shadow: 5px 9px 3px #000;
+                    }
+
+                    .sheet-yayopoints {
+                        margin-top: 20px;
+                        grid-area: yayopoints;
+                        
+                        label {
+                            text-align: center;
+                        }
+
+                        input  {
+                            background-image: url("@{img_prefix}yayopoints.png");
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            width: 60px;
+                            height: 60px;
+                            margin: 0 auto;
+                            padding: 0;
+                            text-align: center;
+                            font-size: 25px;
+                        }
+
+                        .sheet-data {
+                            display: grid;
+                            grid-template-columns: auto auto;
+                            grid-columns-gap: 5px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+        .sheet-habilidades {
+            padding: 0px 20px 20px 20px;
+            .sheet-section-header {
+                display: flex;
+                align-items: center;
+                
+                .sheet-hab-aux {
+                    font-size: 10px;
+                    display: inline-flex;
+                    line-height: 22px;
+                    align-items: center;
+                    label {
+                        margin-left: 5px;
+                        margin-bottom: 0px;
+                        white-space: nowrap;
+                    }
+
+                    input, checkbox {
+                        border: none;
+                        background-image: url("@{img_prefix}yoatus.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        box-shadow: none;
+                    }
+                }
+            }
+            .sheet-lista-habilidades {
+                display: grid;
+                grid-template-rows: repeat(7, 1fr);
+                grid-template-columns: 269px 269px 268px;
+                grid-auto-flow: column;
+                border: 2px solid black;
+
+                .field-wrap {
+                    border: 1px solid rgba(0,0,0,0.5);
+                    display: flex;
+                    font-size: 10px;
+                    align-items: center;
+                    
+                    label {
+                        margin: 0;
+                        padding: 0 0 0 5px;
+                        white-space: nowrap;
+                    }
+
+                    .sheet-habilidades-container {
+                        width: 100%;
+                        text-align: right;
+                        line-height: 1;
+
+                        input[type=radio] {
+                            width: auto;
+                            height: initial;
+                            max-width: initial;
+                            border: initial;
+                            border-radius: inherit;
+                            margin-left: 5px;
+                        }
+
+                        button[type=roll] {
+                            padding: 2px 3px;
+                            font-size: 1.3em;
+                            margin: 0px 3px 0px 3px;
+                            background: transparent;
+                            border: none;
+
+                            &:before {
+                                font-family: "dicefontd20";
+                                content: "t";
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
